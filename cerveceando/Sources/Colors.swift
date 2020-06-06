@@ -21,7 +21,7 @@ class ColorManager {
 	private init() {}
 	static let shared = ColorManager()
 	
-	func getIcon(color: Colors) -> Color {
-		return Color(color.rawValue)
+	func getColor(color: Colors) -> UIColor? {
+		return UIColor(named: color.rawValue)
 	}
 }
