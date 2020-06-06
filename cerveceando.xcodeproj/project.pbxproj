@@ -21,6 +21,8 @@
 		1F4E1321248BF7BF00D44A7A /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E1320248BF7BF00D44A7A /* Navigator.swift */; };
 		1F4E1329248BFEAF00D44A7A /* RestaurantTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E1327248BFEAF00D44A7A /* RestaurantTypeCell.swift */; };
 		1F4E132A248BFEAF00D44A7A /* RestaurantTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E1328248BFEAF00D44A7A /* RestaurantTypeCell.xib */; };
+		1F4E132E248C14B100D44A7A /* restaurantSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E132C248C14B100D44A7A /* restaurantSectionCollectionViewCell.swift */; };
+		1F4E132F248C14B100D44A7A /* restaurantSectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E132D248C14B100D44A7A /* restaurantSectionCollectionViewCell.xib */; };
 		D01796D4C1FF244069D99F0C /* Pods_cerveceando.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455D4D71E5E3017E00781F8 /* Pods_cerveceando.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		1F4E1320248BF7BF00D44A7A /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		1F4E1327248BFEAF00D44A7A /* RestaurantTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTypeCell.swift; sourceTree = "<group>"; };
 		1F4E1328248BFEAF00D44A7A /* RestaurantTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTypeCell.xib; sourceTree = "<group>"; };
+		1F4E132C248C14B100D44A7A /* restaurantSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurantSectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F4E132D248C14B100D44A7A /* restaurantSectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = restaurantSectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		2201F8D6C5B2C731E96C916F /* Pods-cerveceando.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cerveceando.debug.xcconfig"; path = "Target Support Files/Pods-cerveceando/Pods-cerveceando.debug.xcconfig"; sourceTree = "<group>"; };
 		E39A2AF25DAF28591D591EB8 /* Pods-cerveceando.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cerveceando.release.xcconfig"; path = "Target Support Files/Pods-cerveceando/Pods-cerveceando.release.xcconfig"; sourceTree = "<group>"; };
 		F455D4D71E5E3017E00781F8 /* Pods_cerveceando.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cerveceando.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 		1F4E131D248BF70C00D44A7A /* restaurants */ = {
 			isa = PBXGroup;
 			children = (
+				1F4E132B248C134F00D44A7A /* restaurantSection */,
 				1F4E1322248BFE5400D44A7A /* restaurantType */,
 				1F4E131E248BF73500D44A7A /* RestaurantsViewController.swift */,
 			);
@@ -144,6 +149,15 @@
 				1F4E1328248BFEAF00D44A7A /* RestaurantTypeCell.xib */,
 			);
 			path = restaurantType;
+			sourceTree = "<group>";
+		};
+		1F4E132B248C134F00D44A7A /* restaurantSection */ = {
+			isa = PBXGroup;
+			children = (
+				1F4E132C248C14B100D44A7A /* restaurantSectionCollectionViewCell.swift */,
+				1F4E132D248C14B100D44A7A /* restaurantSectionCollectionViewCell.xib */,
+			);
+			path = restaurantSection;
 			sourceTree = "<group>";
 		};
 		E8061192DAB9416DB99C0A6C /* Pods */ = {
@@ -216,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F4E1305248BDC5200D44A7A /* LaunchScreen.storyboard in Resources */,
+				1F4E132F248C14B100D44A7A /* restaurantSectionCollectionViewCell.xib in Resources */,
 				1F4E1316248BE4FF00D44A7A /* Colors.xcassets in Resources */,
 				1F4E1302248BDC5200D44A7A /* Assets.xcassets in Resources */,
 				1F4E1300248BDC4F00D44A7A /* Main.storyboard in Resources */,
@@ -281,6 +296,7 @@
 				1F4E131F248BF73500D44A7A /* RestaurantsViewController.swift in Sources */,
 				1F4E12FB248BDC4F00D44A7A /* SceneDelegate.swift in Sources */,
 				1F4E131A248BEBFA00D44A7A /* Strings.swift in Sources */,
+				1F4E132E248C14B100D44A7A /* restaurantSectionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,13 +17,15 @@ enum RestaurantType: Int {
 class RestaurantsViewController: UIViewController {
 	@IBOutlet weak var topTitle: UILabel!
 	@IBOutlet weak var restaurantTypeCollectionView: UICollectionView!
+	@IBOutlet weak var restaurantSectionCollectionView: UICollectionView!
 	
 	let restaurantTypes = ["Cafeterías", "Bares", "Restaurantes"]
-	var restaurantTypeSelected = RestaurantType.cafeteria
+	var restaurantSection = RestaurantType.cafeteria
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setUpRestaurantTypeCollectionView()
+		setUpRestaurantSectionCollectionView()
 		updateUi()
 	}
 	
@@ -40,19 +42,19 @@ extension RestaurantsViewController {
 extension RestaurantsViewController {
 	
 	private func manageTypeChange() {
-		topTitle.text = restaurantTypes[restaurantTypeSelected.rawValue]
+		topTitle.text = restaurantTypes[restaurantSection.rawValue]
 	}
 	
 	private func setRestaurantType(index: Int) {
 		switch index {
 		case 0:
-			restaurantTypeSelected = .cafeteria
+			restaurantSection = .cafeteria
 		case 1:
-			restaurantTypeSelected = .bar
+			restaurantSection = .bar
 		case 2:
-			restaurantTypeSelected = .restaurant
+			restaurantSection = .restaurant
 		default:
-			restaurantTypeSelected = .cafeteria
+			restaurantSection = .cafeteria
 		}
 	}
 }
@@ -67,14 +69,33 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 		let restaurantTypeNib = UINib(nibName: "RestaurantTypeCell", bundle: nil)
 		restaurantTypeCollectionView.register(restaurantTypeNib, forCellWithReuseIdentifier: "restaurantTypeCell")
 		
+		
 		let collectionBannerLayaout = UICollectionViewFlowLayout()
 		
 		let itemWidth: CGFloat = self.view.frame.width / 3
 		let itemHeight: CGFloat = 50
 		collectionBannerLayaout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-		collectionBannerLayaout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 0)
+		collectionBannerLayaout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 0)
 		collectionBannerLayaout.scrollDirection = .horizontal
+		
 		restaurantTypeCollectionView.collectionViewLayout = collectionBannerLayaout
+	}
+	
+	private func setUpRestaurantSectionCollectionView() {
+		restaurantSectionCollectionView.delegate = self
+		restaurantSectionCollectionView.dataSource = self
+		
+		let restaurantTypeNib = UINib(nibName: "restaurantSectionCollectionViewCell", bundle: nil)
+		restaurantSectionCollectionView.register(restaurantTypeNib, forCellWithReuseIdentifier: "restaurantSectionCell")
+		
+		let collectionBannerLayaout = UICollectionViewFlowLayout()
+		
+		let itemWidth: CGFloat = self.view.frame.width
+		let itemHeight: CGFloat = self.view.frame.height
+		collectionBannerLayaout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+		collectionBannerLayaout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+		collectionBannerLayaout.scrollDirection = .horizontal
+		restaurantSectionCollectionView.collectionViewLayout = collectionBannerLayaout
 	}
 	
 	
@@ -82,6 +103,8 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		switch collectionView.tag {
 		case 0:
+			return restaurantTypes.count
+		case 1:
 			return restaurantTypes.count
 		default:
 			return 0
@@ -96,9 +119,14 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 			cellType.tag = indexPath.row
 			cellType.setActivenes(active: false)
 			
-			if indexPath.row == restaurantTypeSelected.rawValue { cellType.setActivenes(active: true) }
+			if indexPath.row == restaurantSection.rawValue { cellType.setActivenes(active: true) }
 			
 			return cellType
+		case 1:
+			let cellSection = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantSectionCell", for: indexPath) as! RestaurantSectionCollectionViewCell
+			cellSection.setLabel(label: restaurantTypes[indexPath.item])
+			
+			return cellSection
 		default:
 			break
 		}
@@ -111,6 +139,7 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 			collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
 			setRestaurantType(index: indexPath.row)
 			restaurantTypeCollectionView.reloadData()
+			restaurantSectionCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 			manageTypeChange()
 		default:
 			break
