@@ -65,7 +65,7 @@
     </objects>
     <resources>
         <namedColor name="Mustard">
-            <color red="0.94099998474121094" green="0.77999997138977051" blue="0.0046202489174902439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94099998474121094" green="0.77999997138977051" blue="0.004999999888241291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

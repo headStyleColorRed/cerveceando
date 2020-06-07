@@ -18,31 +18,71 @@ class RestaurantsViewController: UIViewController {
 	@IBOutlet weak var topTitle: UILabel!
 	@IBOutlet weak var restaurantTypeCollectionView: UICollectionView!
 	@IBOutlet weak var restaurantSectionCollectionView: UICollectionView!
+	@IBOutlet weak var searchButton: UIButton!
 	
+	let viewModel = RestaurantsViewModel()
 	let restaurantTypes = ["Cafeterías", "Bares", "Restaurantes"]
+	var restaurants = [Restaurant()]
 	var restaurantSection = RestaurantType.cafeteria
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		loadData()
 		setUpRestaurantTypeCollectionView()
 		setUpRestaurantSectionCollectionView()
 		updateUi()
 	}
 	
+	@IBAction func searchButtonAction(_ sender: Any) {
+	}
 }
 
 // MARK: - Ui handler
 extension RestaurantsViewController {
 	func updateUi() {
 		topTitle.font = UIFont.boldSystemFont(ofSize: 25)
+		searchButton.setTitle("", for: .normal)
+		searchButton.imageView?.image = IconManager.shared.getIcon(icon: .searchIcon)
+		searchButton.layer.cornerRadius = searchButton.frame.height / 2
 	}
 }
 
 // MARK: - Private methods
 extension RestaurantsViewController {
 	
+	private func loadData() {
+		let data = viewModel.getRestaurantsData()
+		
+		restaurants = []
+		switch restaurantSection {
+		case .cafeteria:
+			restaurants.append(data[0])
+			restaurants.append(data[1])
+			restaurants.append(data[2])
+		case .bar:
+			restaurants.append(data[3])
+			restaurants.append(data[4])
+			restaurants.append(data[5])
+			restaurants.append(data[6])
+			restaurants.append(data[7])
+			restaurants.append(data[8])
+			restaurants.append(data[9])
+		case .restaurant:
+			restaurants.append(data[5])
+			restaurants.append(data[6])
+			restaurants.append(data[7])
+			restaurants.append(data[8])
+			restaurants.append(data[9])
+			restaurants.append(data[10])
+		}
+		
+		restaurantSectionCollectionView.reloadData()
+		restaurantSectionCollectionView.scrollToItem(at: IndexPath(index: 0), at: .top, animated: true)
+	}
+	
 	private func manageTypeChange() {
 		topTitle.text = restaurantTypes[restaurantSection.rawValue]
+		loadData()
 	}
 	
 	private func setRestaurantType(index: Int) {
@@ -90,12 +130,13 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 		
 		let collectionBannerLayaout = UICollectionViewFlowLayout()
 		
-		let itemWidth: CGFloat = self.view.frame.width
-		let itemHeight: CGFloat = self.view.frame.height
-		collectionBannerLayaout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-		collectionBannerLayaout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-		collectionBannerLayaout.scrollDirection = .horizontal
-		restaurantSectionCollectionView.collectionViewLayout = collectionBannerLayaout
+		let itemWidth: CGFloat = self.view.frame.width - 70
+        let itemHeight: CGFloat = 120
+        collectionBannerLayaout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        collectionBannerLayaout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        collectionBannerLayaout.scrollDirection = .vertical
+		collectionBannerLayaout.minimumLineSpacing = 30
+        restaurantSectionCollectionView.collectionViewLayout = collectionBannerLayaout
 	}
 	
 	
@@ -105,7 +146,7 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 		case 0:
 			return restaurantTypes.count
 		case 1:
-			return restaurantTypes.count
+			return restaurants.count
 		default:
 			return 0
 		}
@@ -124,8 +165,8 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 			return cellType
 		case 1:
 			let cellSection = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantSectionCell", for: indexPath) as! RestaurantSectionCollectionViewCell
-			cellSection.setLabel(label: restaurantTypes[indexPath.item])
 			
+			cellSection.fillCell(data: restaurants[indexPath.row])
 			return cellSection
 		default:
 			break
@@ -139,7 +180,6 @@ extension RestaurantsViewController: UICollectionViewDelegate, UICollectionViewD
 			collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
 			setRestaurantType(index: indexPath.row)
 			restaurantTypeCollectionView.reloadData()
-			restaurantSectionCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 			manageTypeChange()
 		default:
 			break
