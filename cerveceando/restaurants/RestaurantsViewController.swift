@@ -41,9 +41,11 @@ class RestaurantsViewController: UIViewController {
 extension RestaurantsViewController {
 	func updateUi() {
 		topTitle.font = UIFont.boldSystemFont(ofSize: 25)
+		
 		searchButton.setTitle("", for: .normal)
 		searchButton.imageView?.image = IconManager.shared.getIcon(icon: .searchIcon)
 		searchButton.layer.cornerRadius = searchButton.frame.height / 2
+		searchButton.backgroundColor = ColorManager.shared.getColor(color: .MustardYellow)
 	}
 }
 

@@ -12,6 +12,9 @@ import UIKit
 enum Icons: String {
 	case beerIcon = "beer_icon"
 	case searchIcon = "search_icon"
+	case chairIcon = "chair_icon"
+	case phoneIcon = "phone_icon"
+	
 	case restaurante1 = "restaurante1"
 	case restaurante2 = "restaurante2"
 	case restaurante3 = "restaurante3"
