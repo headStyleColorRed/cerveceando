@@ -26,7 +26,7 @@ extension RestaurantTypeCell {
 		label.font = UIFont.boldSystemFont(ofSize: 18)
 		
 		
-		goldenLine.backgroundColor = ColorManager.shared.getColor(color: .MustardYellow)
+		goldenLine.backgroundColor = ColorManager.shared.getColor(color: .mustardYellow)
 		isActive ? (goldenLine.isHidden = false) : (goldenLine.isHidden = true)
 	}
 

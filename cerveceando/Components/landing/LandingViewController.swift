@@ -37,7 +37,7 @@ extension LandingViewController {
 		startButton.setTitle(StringManager.shared.getString(string: .findATable), for: .normal)
 		
 		// Button
-		startButton.backgroundColor = ColorManager.shared.getColor(color: .MustardYellow)
+		startButton.backgroundColor = ColorManager.shared.getColor(color: .mustardYellow)
 		startButton.layer.cornerRadius = startButton.frame.height / 2
 		startButton.tintColor = .white
 		startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)

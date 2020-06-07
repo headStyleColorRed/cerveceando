@@ -45,7 +45,8 @@ extension RestaurantsViewController {
 		searchButton.setTitle("", for: .normal)
 		searchButton.imageView?.image = IconManager.shared.getIcon(icon: .searchIcon)
 		searchButton.layer.cornerRadius = searchButton.frame.height / 2
-		searchButton.backgroundColor = ColorManager.shared.getColor(color: .MustardYellow)
+		searchButton.backgroundColor = ColorManager.shared.getColor(color: .mustardYellow)
+		
 	}
 }
 
@@ -53,33 +54,33 @@ extension RestaurantsViewController {
 extension RestaurantsViewController {
 	
 	private func loadData() {
-		let data = viewModel.getRestaurantsData()
-		
-		restaurants = []
-		switch restaurantSection {
-		case .cafeteria:
-			restaurants.append(data[0])
-			restaurants.append(data[1])
-			restaurants.append(data[2])
-		case .bar:
-			restaurants.append(data[3])
-			restaurants.append(data[4])
-			restaurants.append(data[5])
-			restaurants.append(data[6])
-			restaurants.append(data[7])
-			restaurants.append(data[8])
-			restaurants.append(data[9])
-		case .restaurant:
-			restaurants.append(data[5])
-			restaurants.append(data[6])
-			restaurants.append(data[7])
-			restaurants.append(data[8])
-			restaurants.append(data[9])
-			restaurants.append(data[10])
+		viewModel.getRestaurantsData() { data in
+			self.restaurants = []
+			switch self.restaurantSection {
+			case .cafeteria:
+				self.restaurants.append(data[0])
+				self.restaurants.append(data[1])
+				self.restaurants.append(data[2])
+			case .bar:
+				self.restaurants.append(data[3])
+				self.restaurants.append(data[4])
+				self.restaurants.append(data[5])
+				self.restaurants.append(data[6])
+				self.restaurants.append(data[7])
+				self.restaurants.append(data[8])
+				self.restaurants.append(data[9])
+			case .restaurant:
+				self.restaurants.append(data[5])
+				self.restaurants.append(data[6])
+				self.restaurants.append(data[7])
+				self.restaurants.append(data[8])
+				self.restaurants.append(data[9])
+				self.restaurants.append(data[10])
+			}
+			
+			self.restaurantSectionCollectionView.reloadData()
+			self.restaurantSectionCollectionView.scrollToItem(at: IndexPath(index: 0), at: .top, animated: true)
 		}
-		
-		restaurantSectionCollectionView.reloadData()
-		restaurantSectionCollectionView.scrollToItem(at: IndexPath(index: 0), at: .top, animated: true)
 	}
 	
 	private func manageTypeChange() {

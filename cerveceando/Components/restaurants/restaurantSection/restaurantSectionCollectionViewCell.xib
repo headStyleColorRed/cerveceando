@@ -44,8 +44,8 @@
                                 <rect key="frame" x="136" y="84" width="12.5" height="22"/>
                                 <state key="normal" image="phone_icon"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBh-d1-aPL">
-                                <rect key="frame" x="136" y="34" width="15" height="13"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VBh-d1-aPL">
+                                <rect key="frame" x="136" y="34" width="95" height="13"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chair_icon" translatesAutoresizingMaskIntoConstraints="NO" id="3gP-UX-I51">
                                         <rect key="frame" x="0.0" y="0.0" width="15" height="13"/>
@@ -53,11 +53,34 @@
                                             <constraint firstAttribute="width" constant="15" id="kDB-dp-qva"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chair_icon" translatesAutoresizingMaskIntoConstraints="NO" id="I7h-W5-Eta">
+                                        <rect key="frame" x="20" y="0.0" width="15" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="7EN-km-qEJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chair_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Xzk-pA-im0">
+                                        <rect key="frame" x="40" y="0.0" width="15" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="tEV-Am-YpF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chair_icon" translatesAutoresizingMaskIntoConstraints="NO" id="iUE-GK-LRQ">
+                                        <rect key="frame" x="60" y="0.0" width="15" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="th6-Qj-shh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chair_icon" translatesAutoresizingMaskIntoConstraints="NO" id="JbW-d8-7Gl">
+                                        <rect key="frame" x="80" y="0.0" width="15" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="0ha-M7-DhT"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="3gP-UX-I51" firstAttribute="top" secondItem="VBh-d1-aPL" secondAttribute="top" id="1vq-Iw-bPs"/>
                                     <constraint firstItem="3gP-UX-I51" firstAttribute="leading" secondItem="VBh-d1-aPL" secondAttribute="leading" id="le8-RV-uvK"/>
-                                    <constraint firstAttribute="width" constant="15" id="t6N-Sj-Rwc"/>
                                     <constraint firstAttribute="bottom" secondItem="3gP-UX-I51" secondAttribute="bottom" id="u1f-Ou-B8M"/>
                                 </constraints>
                             </stackView>
@@ -102,6 +125,11 @@
             <viewLayoutGuide key="safeArea" id="ayL-oB-t98"/>
             <size key="customSize" width="300" height="119"/>
             <connections>
+                <outlet property="chairFive" destination="JbW-d8-7Gl" id="Knr-ai-3Kk"/>
+                <outlet property="chairFour" destination="iUE-GK-LRQ" id="BLk-De-0zz"/>
+                <outlet property="chairOne" destination="3gP-UX-I51" id="Joy-zf-yOW"/>
+                <outlet property="chairThree" destination="Xzk-pA-im0" id="h5C-De-13d"/>
+                <outlet property="chairTwo" destination="I7h-W5-Eta" id="Tnh-Lj-P6W"/>
                 <outlet property="containerView" destination="wBn-Zm-szs" id="AX8-fN-HBl"/>
                 <outlet property="ratingStackview" destination="VBh-d1-aPL" id="cvy-dp-zdA"/>
                 <outlet property="restaurantImage" destination="Qgt-BW-kcJ" id="djb-fz-otT"/>

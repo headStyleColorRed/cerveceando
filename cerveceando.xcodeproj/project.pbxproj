@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2DC7BC248CF46A001FD1D9 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DC7BB248CF46A001FD1D9 /* StringEx.swift */; };
 		1F4E12F9248BDC4F00D44A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E12F8248BDC4F00D44A7A /* AppDelegate.swift */; };
 		1F4E12FB248BDC4F00D44A7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E12FA248BDC4F00D44A7A /* SceneDelegate.swift */; };
 		1F4E1300248BDC4F00D44A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E12FE248BDC4F00D44A7A /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F2DC7BB248CF46A001FD1D9 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		1F4E12F5248BDC4F00D44A7A /* cerveceando.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cerveceando.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4E12F8248BDC4F00D44A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F4E12FA248BDC4F00D44A7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1F2DC7BA248CF459001FD1D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F2DC7BB248CF46A001FD1D9 /* StringEx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1F2DC7BD248CF860001FD1D9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1F4E131D248BF70C00D44A7A /* restaurants */,
+				1F4E130C248BDCD900D44A7A /* landing */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		1F4E12EC248BDC4F00D44A7A = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +116,11 @@
 		1F4E12F7248BDC4F00D44A7A /* cerveceando */ = {
 			isa = PBXGroup;
 			children = (
+				1F2DC7BA248CF459001FD1D9 /* Extensions */,
 				1F4E13B6248C50E300D44A7A /* Entities */,
 				1F4E130F248BDF9200D44A7A /* App */,
 				1F4E1310248BE3A800D44A7A /* Sources */,
-				1F4E131D248BF70C00D44A7A /* restaurants */,
-				1F4E130C248BDCD900D44A7A /* landing */,
+				1F2DC7BD248CF860001FD1D9 /* Components */,
 				1F4E12FE248BDC4F00D44A7A /* Main.storyboard */,
 				1F4E1303248BDC5200D44A7A /* LaunchScreen.storyboard */,
 				1F4E1306248BDC5200D44A7A /* Info.plist */,
@@ -310,6 +329,7 @@
 				1F4E1329248BFEAF00D44A7A /* RestaurantTypeCell.swift in Sources */,
 				1F4E1318248BE58000D44A7A /* Icons.swift in Sources */,
 				1F4E13BA248C589500D44A7A /* restaurantsViewModel.swift in Sources */,
+				1F2DC7BC248CF46A001FD1D9 /* StringEx.swift in Sources */,
 				1F4E130E248BDDA500D44A7A /* LandingViewController.swift in Sources */,
 				1F4E12F9248BDC4F00D44A7A /* AppDelegate.swift in Sources */,
 				1F4E13BC248C5C4D00D44A7A /* RestaurantsModel.swift in Sources */,

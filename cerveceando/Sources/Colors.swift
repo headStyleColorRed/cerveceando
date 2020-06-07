@@ -12,8 +12,10 @@ import SwiftUI
 
 enum Colors: String {
 	
-	case darkBackground = "Dark_background"
-	case MustardYellow = "Mustard"
+	case darkBackground = "dark_gray"
+	case mustardYellow = "mustard_yellow"
+	case darkGreen = "dark_green"
+	case darkRed = "dark_red"
 }
 
 class ColorManager {
